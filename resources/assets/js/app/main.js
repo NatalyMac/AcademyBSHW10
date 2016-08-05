@@ -1,6 +1,6 @@
-//$        = require('jquery');
-//_        = require('underscore');
-//Backbone = require('backbone');
+$        = require('jquery');
+_        = require('underscore');
+Backbone = require('backbone');
 
 var Book   = require('./models/bookModel.js').Book;
 var User   = require('./models/userModel.js').User;
