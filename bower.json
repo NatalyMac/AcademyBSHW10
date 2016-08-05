@@ -1,0 +1,23 @@
+{
+  "name": "nataly",
+  "description": "",
+  "main": "",
+  "authors": [
+    "Nataly Kulychyk <kulychyk.nataliia@travers-group.com>"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/NatalyMac/AcademyBSHW7eLibraryRESTAPI",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "^3.1.0"
+  },
+  "devDependencies": {
+    "zepto": "^1.1.6"
+  }
+}
