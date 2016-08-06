@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Repositories\UserRepository;
+use App\Repositories\BookRepository;
 
 
 class UserBookController extends Controller
@@ -11,9 +12,10 @@ class UserBookController extends Controller
      * LendController constructor.
      * @param UserRepository $users
      */
-    public function __construct(UserRepository $users)
+    public function __construct(UserRepository $users, BookRepository $books)
     {
         $this->users = $users;
+        $this->books = $books;
     }
 
     /**

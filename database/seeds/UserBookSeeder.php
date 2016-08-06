@@ -17,9 +17,9 @@ class UserBookSeeder extends Seeder {
     {
         DB::table('user_books')->delete();
 
-        factory(UserBook::class, 10)->create();
+        factory(UserBook::class, 5)->create();
 
-        for ($i=1; $i<=10; $i++)
+        for ($i=1; $i<=5; $i++)
 
         {
             $book_id =  Book::all()->random(1)->id;
@@ -32,8 +32,7 @@ class UserBookSeeder extends Seeder {
                 $lend = new UserBook();
                 $lend->user_id = $user_id;
                 $lend->book_id = $book_id;
-                $lend->date_getin_plan = date ('Y:m:d H:m:s', (time()+60000));
-
+                $lend->date_getin_plan = date ('Y:m:d H:m:s', (time()+60*60*24*10));
                 $lend->save();
                 $book->is_charged = true;
                 $book->save();

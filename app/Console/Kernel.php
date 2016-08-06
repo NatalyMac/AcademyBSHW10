@@ -2,6 +2,10 @@
 
 namespace App\Console;
 
+use App\Repositories\UserRepository;
+use App\Http\Controllers\SendRemindMail;
+use App\UserBook;
+
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
 
@@ -24,7 +28,20 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule)
     {
-        // $schedule->command('inspire')
-        //          ->hourly();
+        $schedule->call(function (){
+
+            $users = UserRepository::usersToRemind();
+            
+            $smr = new SendRemindMail();
+
+            $smr->sendReminderBook($users, 'return', null);
+
+            if (count($users)){
+            UserBook::setRemind();
+
+            }
+        //dev mode
+        })->everyMinute();
+        //prod mode daily();
     }
 }

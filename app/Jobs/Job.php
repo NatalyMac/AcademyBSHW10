@@ -20,12 +20,4 @@ abstract class Job
     use Queueable;
 
 
-//$mailer->send('emails.reminder', ['user' => $this->user], function ($m) {
-//var_dump('job');
-// $m->from('hello@app.com', 'Your Application');
-
-//$m->to($this->user->email, $this->user->firstname)->subject('Your Reminder!');
-//});
-
-//$this->user->reminders()->create(...);
 }

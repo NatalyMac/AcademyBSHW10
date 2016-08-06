@@ -27,7 +27,8 @@ class AppServiceProvider extends ServiceProvider
             'Repositories\Contracts\ApiRepoInterface',
             'Repositories\UserRepository',
             'Repositories\BookRepository',
-            'Repositories\AbstractRepository'
+            'Repositories\AbstractRepository',
+            'Http\Controllers\SendRemindMail,'
         );
     }
 }

@@ -104,4 +104,10 @@ class UserRepository extends AbstractRepository
     {
         return User::getUpdateRules();
     }
+
+    public static function usersToRemind()
+    {
+        return User::getUsersToRemind();
+    }
+
 }

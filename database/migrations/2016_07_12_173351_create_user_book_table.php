@@ -18,6 +18,7 @@ class CreateUserBookTable extends Migration
             $table->integer('book_id')->unsigned();
             $table->timestamp('date_getin_plan');
             $table->timestamp('date_getin_fact')->nullable();
+            $table->boolean('is_remind')->default(false);
             $table->timestamps();
         });
     }

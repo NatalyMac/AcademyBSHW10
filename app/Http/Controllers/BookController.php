@@ -7,6 +7,8 @@ use Validator;
 
 use App\Http\Requests;
 use App\Repositories\BookRepository;
+use App\Repositories\UserRepository;
+use App\Http\Controllers\SendRemindMail;
 
 
 class BookController extends Controller
@@ -48,7 +50,7 @@ class BookController extends Controller
      * @param Request $request
      * @return mixed
      */
-    public function store(Request $request)
+    public function store(Request $request, SendRemindMail $srm, UserRepository $users)
     {
         $validator = Validator::make($request->all(), $this->books->getRules());
 
@@ -56,6 +58,9 @@ class BookController extends Controller
             return response()->json($validator->messages(), 406);
 
         $book = $this->books->add($request->all());
+
+        $srm->sendReminderBook($users->all(), 'new', $book);
+
             return response()->json($book, 201);
     }
 

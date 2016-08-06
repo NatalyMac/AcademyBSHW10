@@ -41,6 +41,7 @@ class UserController extends Controller
     public function show($id)
     {
         $user =  $this->users->get($id);
+
             return response()->json($user);
     }
 
@@ -87,4 +88,5 @@ class UserController extends Controller
         } else
             return response()->json(['message'=>'Can not delete, User ID'.$id.'holds books'], 400);
     }
+    
 }
