@@ -17,11 +17,20 @@ exports.Book = Backbone.Model.extend({
         var alpha = /[a-zA-zа-яА-Я]+/i;
         var number = /[0-9]+/i;
 
-        if (!$.trim(attrs.gerne) || !$.trim(attrs.author) || !$.trim(attrs.title)) {
+        if (!($.trim(attrs.genre))){
+            return 'The field is required';
+        }
+        if (!($.trim(attrs.author))){
+            return 'The field is required';
+        }
+        if (!($.trim(attrs.title))){
+            return 'The field is required';
+        }
+        if (!($.trim(attrs.year))){
             return 'The field is required';
         }
 
-        if (!alpha.test(attrs.gerne) || !alpha.test(attrs.author)) {
+        if (!alpha.test(attrs.genre) || !alpha.test(attrs.author)) {
             return "Should be only alpha";
         }
 
@@ -30,4 +39,5 @@ exports.Book = Backbone.Model.extend({
         }
     }
 });
+
 

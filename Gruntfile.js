@@ -40,7 +40,7 @@ module.exports = function(grunt) {
             },
             all: {
                 src: ["resources/assets/js/template/*.tpl"],
-                dest: "public/resources/home.blade.php"
+                dest: "resources/views/home.blade.php"
             }
         },
         
