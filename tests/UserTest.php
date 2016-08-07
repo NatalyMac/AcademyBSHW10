@@ -110,9 +110,52 @@ class UserTest extends TestCase
     ])
         ->assertResponseStatus('200');
         
+    $this->json('PUT', '/api/users/'.$id,
+        ['firstname' => '',
+            'lastname'=>'Daddy',
+            'email' =>'e@e.com',
+
+        ])
+        ->assertResponseStatus('406');
+    
+    $this->json('PUT', '/api/users/'.$id,
+        ['firstname' => 'Ann',
+            'lastname'=>'',
+            'email' =>'e@e.com',
+
+        ])
+        ->assertResponseStatus('406');
+
+    $this->json('PUT', '/api/users/'.$id,
+        ['firstname' => 'Ann',
+            'lastname'=>'Daddy',
+            'email' =>'',
+
+        ])
+        ->assertResponseStatus('406');
+
+    $this->json('PUT', '/api/users/'.$id,
+        ['firstname' => 'Add',
+            'lastname'=>'Daddy',
+            'email' =>'e@e.com',
+
+        ])
+        ->seeJson([
+            'firstname' => 'Add',
+            'lastname'=>'Daddy',
+            'email' =>'e@e.com',
+        ])
+        ->assertResponseStatus('200');
+
+
+    $response = $this->call('GET', '/api/users/'.$id);
+    $this->assertEquals(200, $response->status());
+
+
     $response = $this->call('DELETE', '/api/users/'.$id);
     $this->assertEquals(204, $response->status());
-       
+
+
     $this->get('/api/users')
         ->seeJsonStructure([
             '*' => [
@@ -120,5 +163,9 @@ class UserTest extends TestCase
             ]
         ])
         ->assertResponseStatus('200');
+
+    $response = $this->call('GET', '/api/users/'.$id);
+    $this->assertEquals(404, $response->status());
+
     }
 }

@@ -8,6 +8,7 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-cssmin');
 
     grunt.registerTask('dev', ['browserify','concat_css:all', 'concat:all','watch']);
+    grunt.registerTask('default', ['browserify','concat_css:all', 'concat:all','watch']);
     grunt.registerTask('stage', ['browserify','concat_css:all', 'concat:all']);
     grunt.registerTask('prod', ['browserify','concat_css:all', 'concat:all','uglify','cssmin']);
 
@@ -48,7 +49,7 @@ module.exports = function(grunt) {
             options: {
                 mangle: false
             },
-            my_target: {
+            tar: {
                 files: {
                     'public/js/bundle.js':['public/js/bundle.js']
                 }
