@@ -35,7 +35,7 @@ class User extends Authenticatable
 
     protected $updateRules = ['firstname' => 'required|alpha',
         'lastname' => 'required|alpha',
-        'email' => 'required|email|unique:users'];
+        'email' => 'required|email'];
 
     protected $remindAfter = 30;
 
