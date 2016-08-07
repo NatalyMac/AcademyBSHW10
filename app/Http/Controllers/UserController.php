@@ -69,6 +69,8 @@ class UserController extends Controller
     {
         $validator = Validator::make($request->all(),  $this->users->getUpdateRules());
 
+        $this->users->getUpdateRules();
+
         if ($validator->fails())
             return response()->json($validator->messages(), 406);
 
