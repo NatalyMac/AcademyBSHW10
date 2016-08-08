@@ -6,14 +6,16 @@
 @if ($type == 'new')
     <p> We would like to tell about our new  book  </p>
     <div>
-        {{$book->title}}{{$book->author}}
+      <p>  {{$book['title']}} </p>
+        <p>{{$book['author']}}</p>
     </div>
 @endif
 
 @if ($type == 'return')
     <p> We would like to remind to return the book  </p>
     <div>
-        {{$book->title}}{{$book->author}}
+        <p>  {{$book['title']}} </p>
+        <p>{{$book['author']}}</p>
     </div>
 @endif
 

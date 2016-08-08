@@ -40,12 +40,12 @@ class SendReminderEmail extends Job implements ShouldQueue
     public function handle(Mailer $mailer)
     {
         //emulation for queue of mailsending, overlimited google mailbox
-        var_dump($this->user->firstname);
-        var_dump($this->book);
-        var_dump($this->subject);
-        var_dump($this->typeRemind);
+        // var_dump($this->user->firstname);
+        // var_dump($this->book);
+        // var_dump($this->subject);
+        // var_dump($this->typeRemind);
 
-       /* $mailer->send('mails.reminder', ['user' => $this->user,
+        $mailer->send('mails.reminder', ['user' => $this->user,
                                          'book'=>$this->book,
                                     
                                          'subject'=>$this->subject,
@@ -55,6 +55,6 @@ class SendReminderEmail extends Job implements ShouldQueue
                 $m->to($this->user->email, $this->user->firstname)
                 ->subject($this->subject);
            });
-        */
+        
     }
 }
